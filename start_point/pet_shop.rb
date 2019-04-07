@@ -101,3 +101,21 @@ def customer_can_afford_pet(customer, can_buy_pet)
   #if customer cash >= pet price return true else return false
   return customer[:cash] >= can_buy_pet[:price]
 end
+
+def sell_pet_to_customer(pet_shop, pet, customer)
+  #access customer array at point 0
+  #access pet shop hash, pets array to check to see if pet name exists
+  #if pet exists, move pet from pet shop hash, pets array to customer array and add to pets array if hash at point 0
+  #adjust customer cash and shop total cash by corresponding pet price.
+  #note: this does not check to see if the customer can afford the pet, the customer cash figure could become negative
+  pet_shops_pets = pet_shop[:pets]
+  customer_pets = customer[:pets]
+
+  for pet in pet_shops_pets
+    if pet[:name] == pet
+      customer_pets << pet
+      #return pet
+    end
+  end
+  #return nil
+end
