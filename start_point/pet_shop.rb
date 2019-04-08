@@ -16,8 +16,8 @@ def pets_sold(sold)
   return sold[:admin][:pets_sold]
 end
 
-def increase_pets_sold(sold, pet_sold)
-  return sold[:admin][:pets_sold] += pet_sold
+def increase_pets_sold(pet_shop, pet_sold)
+  return pet_shop[:admin][:pets_sold] += pet_sold
 end
 
 def stock_count(count)
@@ -38,13 +38,13 @@ def pets_by_breed(pet_shop, pet_to_find)
   return pet_breed
 end
 
-def find_pet_by_name(pet_shop, pet_to_find)
+def find_pet_by_name(pet_shop, pet_name)
   #pet_name = {}
 
   pet_shops_pets = pet_shop[:pets]
 
   for pet in pet_shops_pets
-    if pet[:name] == pet_to_find
+    if pet[:name] == pet_name
       #pet_name = pet_to_find
       #pet_name.to_s(pet)
       return pet
@@ -73,7 +73,7 @@ def add_pet_to_stock(pet_shop, pet_to_add)
   #p pet_shop[:pets]
 end
 
-def customer_cash(cash)
+def customer_cash(customers)
   # in customers array confirm that the hash that contains Alice has cash 1000
   return @customers[0][:cash]
 end
@@ -95,11 +95,11 @@ def add_pet_to_customer(customer, pet_to_add)
   customer[:pets] << pet_to_add
 end
 
-def customer_can_afford_pet(customer, can_buy_pet)
+def customer_can_afford_pet(customer, pet)
   #access customer array, enter their hash and find cash.
   #access @new_pet hash and and find price
   #if customer cash >= pet price return true else return false
-  return customer[:cash] >= can_buy_pet[:price]
+  return customer[:cash] >= pet[:price]
 end
 
 def sell_pet_to_customer(pet_shop, pet, customer)
